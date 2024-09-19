@@ -1,0 +1,13 @@
+name: Another Test CI    # Same name as the existing workflow
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Malicious Step
+        run: echo "Stealing secrets..."   # Malicious or unwanted behavior
+      - name: Artifact poisoning
+        run: echo "Overwriting artifacts..."
